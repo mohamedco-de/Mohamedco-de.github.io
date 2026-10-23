@@ -1,0 +1,35 @@
+/* HERO */
+/* FIX: was position:sticky which caused it to stay pinned under the Stack
+   section content and overlap the heading text. Changed to relative. */
+.hero{position:relative;height:100vh;display:flex;align-items:flex-end;padding-bottom:80px;overflow:hidden}
+.hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:10;pointer-events:none}
+.hero-images{position:absolute;right:0;top:0;bottom:0;width:60%;display:flex;gap:16px;opacity:.35;pointer-events:none;overflow:hidden}
+.hero-images .col{display:flex;flex-direction:column;gap:16px;flex:1;width:100%}
+.hero-images .col-track{display:flex;flex-direction:column;gap:16px;flex-shrink:0}
+.hero-images .col.up .col-track{animation:heroScrollUp 32s linear infinite}
+.hero-images .col.down .col-track{animation:heroScrollDown 32s linear infinite}
+@keyframes heroScrollUp{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+@keyframes heroScrollDown{0%{transform:translateY(-50%)}100%{transform:translateY(0)}}
+.hero-img{width:100%;aspect-ratio:3/4;border-radius:24px;overflow:hidden;background:var(--secondary);filter:grayscale(.6) contrast(1.08) brightness(0.85);mix-blend-mode:luminosity;flex-shrink:0}
+.hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-gradient{position:absolute;inset:0;background:linear-gradient(to top,var(--bg),transparent 40%),linear-gradient(to right,var(--bg),transparent 50%);z-index:15;pointer-events:none}
+.hero-content{position:relative;z-index:20;padding:0 clamp(16px,4vw,64px);max-width:1400px;margin:0 auto;width:100%}
+.hero-deco{position:absolute;left:24px;bottom:120px;font-size:48px;color:var(--fg);opacity:.08;font-weight:300;writing-mode:vertical-rl;letter-spacing:4px;font-family:'JetBrains Mono',monospace}
+.hero-scroll{position:absolute;left:24px;bottom:200px;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:20}
+.hero-scroll .line{width:1px;height:60px;background:color-mix(in srgb,var(--fg) 20%,transparent);position:relative;overflow:hidden}
+.hero-scroll .line::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:var(--fg);animation:scrollFill 2s ease infinite}
+@keyframes scrollFill{0%{transform:translateY(-100%)}50%{transform:translateY(0)}100%{transform:translateY(100%)}}
+.hero-scroll span{font-size:10px;text-transform:uppercase;letter-spacing:3px;color:var(--muted);writing-mode:vertical-rl}
+.hero-heading{font-family:'Syne',sans-serif;font-size:clamp(48px,10vw,140px);font-weight:800;letter-spacing:-2px;line-height:.85;text-transform:uppercase;mix-blend-mode:difference;position:relative}
+.hero-heading .thin{font-weight:300;font-style:italic;font-family:'Inter',sans-serif;text-transform:none;letter-spacing:0}
+.hero-bio{margin-top:32px;max-width:600px;font-size:clamp(16px,1.5vw,20px);line-height:1.7;color:var(--muted)}
+.hero-bio strong{color:var(--fg);font-weight:600}
+.hero-bio em{font-style:italic;font-family:serif;color:var(--fg);opacity:.8}
+.hero-buttons{display:flex;gap:16px;margin-top:32px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 28px;border-radius:9999px;font-size:14px;font-weight:600;transition:all .3s;position:relative;overflow:hidden}
+.btn-filled{background:var(--fg);color:var(--bg)}
+.btn-filled:hover{opacity:.9;transform:translateY(-1px)}
+.btn-ghost{border:1px solid var(--border);background:transparent}
+.btn-ghost:hover{border-color:var(--fg);transform:translateY(-1px)}
+.btn .sweep{position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transform:skewX(-13deg);transition:left .6s}
+.btn:hover .sweep{left:100%}

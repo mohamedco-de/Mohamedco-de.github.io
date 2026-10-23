@@ -1,0 +1,9 @@
+/* CONTACT */
+.contact-wrap{max-width:900px;margin:0 auto}
+.contact-row{display:flex;align-items:center;justify-content:space-between;padding:clamp(32px,5vw,56px) 0;border-bottom:1px solid color-mix(in srgb,var(--border) 50%,transparent);transition:padding .4s}
+.contact-row:hover{padding-left:32px}
+.contact-row .label{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:4px}
+.contact-row .value{font-family:'Syne',sans-serif;font-size:clamp(20px,3vw,36px);font-weight:700;transition:color .3s}
+.contact-row:hover .value{color:var(--primary)}
+.contact-row .arrow{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;opacity:0;transform:translateX(-10px);transition:all .3s;font-size:14px}
+.contact-row:hover .arrow{opacity:1;transform:translateX(0)}

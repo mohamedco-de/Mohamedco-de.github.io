@@ -1,0 +1,12 @@
+/* REDUCED MOTION */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important}
+  .reveal{opacity:1;filter:none;transform:none}
+}
+
+/* ICONS */
+.header-btn svg{width:20px;height:20px}
+.mobile-close svg{width:26px;height:26px}
+.stack-icon svg{width:28px;height:28px}
+.contact-row .arrow svg{width:16px;height:16px}
+.about-pendulum .pend-card .avatar svg{width:20px;height:20px;color:#fff}

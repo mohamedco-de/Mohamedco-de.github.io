@@ -1,0 +1,27 @@
+/* PROJECTS */
+.projects-wrap{margin-top:64px}
+.projects-intro{font-size:clamp(16px,1.3vw,20px);color:var(--muted);max-width:600px;margin-bottom:48px;line-height:1.7}
+.projects-intro em{font-style:italic;font-family:serif;color:var(--fg)}
+.projects-intro strong{font-weight:700;color:var(--fg)}
+/* السكرول الأفقي: .projects-pin طوله يتحسب بالـJS، و .projects-scroll يثبت فوق وهو يتحرك الـtrack */
+.projects-pin{position:relative;height:100vh}
+.projects-scroll{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
+.projects-track{display:flex;gap:32px;padding:0 clamp(16px,4vw,64px);width:max-content;will-change:transform}
+@media(max-width:768px),(prefers-reduced-motion:reduce){
+  /* بالجوال أو لمن المستخدم يقلل الحركة: سكرول أفقي عادي بدون تثبيت */
+  .projects-pin{height:auto!important}
+  .projects-scroll{position:relative;height:auto;overflow-x:auto;padding:32px 0;scroll-snap-type:x proximity}
+  .projects-track{transform:none!important}
+  .project-card{scroll-snap-align:center}
+}
+.project-card{width:clamp(300px,35vw,500px);aspect-ratio:4/3;border-radius:20px;overflow:hidden;position:relative;cursor:pointer;perspective:1000px;flex-shrink:0;border:1px solid var(--border);transition:border-color .5s}
+.project-card:hover{border-color:color-mix(in srgb,var(--fg) 30%,transparent)}
+.project-card .project-bg{position:absolute;inset:0;opacity:.6;filter:grayscale(1);transition:opacity 1s,filter 1s,transform 1s}
+.project-card:hover .project-bg{opacity:1;filter:grayscale(0);transform:scale(1.05)}
+.project-card .project-overlay{position:absolute;inset:0;background:linear-gradient(to top,var(--bg),color-mix(in srgb,var(--bg) 40%,transparent),transparent);z-index:1}
+.project-card .project-meta{position:absolute;top:16px;left:16px;z-index:2;display:flex;gap:8px;opacity:0;transform:translateY(-10px);transition:all .5s}
+.project-card:hover .project-meta{opacity:1;transform:translateY(0)}
+.project-card .project-tag{padding:4px 12px;border-radius:9999px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;border:1px solid color-mix(in srgb,var(--fg) 20%,transparent);backdrop-filter:blur(8px);background:color-mix(in srgb,var(--bg) 60%,transparent)}
+.project-card .project-name{position:absolute;bottom:24px;left:24px;right:24px;z-index:2;font-family:'Syne',sans-serif;font-size:clamp(24px,3vw,48px);font-weight:800;text-transform:uppercase;opacity:.1;transition:opacity .5s}
+.project-card:hover .project-name{opacity:1}
+.project-more{flex-shrink:0;display:flex;align-items:center;font-family:'Syne',sans-serif;font-size:clamp(60px,8vw,120px);font-weight:800;text-transform:uppercase;color:color-mix(in srgb,var(--fg) 15%,transparent);padding:0 64px}

@@ -1,0 +1,10 @@
+/* MARQUEE */
+.marquee{overflow:hidden;padding:24px 0;border-top:1px solid color-mix(in srgb,var(--border) 40%,transparent);border-bottom:1px solid color-mix(in srgb,var(--border) 40%,transparent);position:relative}
+.marquee-track{display:flex;gap:32px;animation:marqueeScroll 30s linear infinite;width:max-content}
+.marquee.reverse .marquee-track{animation-direction:reverse}
+.marquee-item{font-family:'Syne',sans-serif;font-size:clamp(24px,4vw,64px);font-weight:700;text-transform:uppercase;color:color-mix(in srgb,var(--fg) 25%,transparent);white-space:nowrap;display:flex;align-items:center;gap:32px}
+.marquee-item .dot{width:8px;height:8px;border-radius:50%;background:color-mix(in srgb,var(--fg) 10%,transparent);flex-shrink:0}
+.marquee::before,.marquee::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.marquee::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
+.marquee::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
+@keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
