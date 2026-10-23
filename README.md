@@ -140,9 +140,9 @@ All the content you are likely to change lives in `script.js`, near the top:
 
 ## Contact
 
-- **GitHub:** [github.com/saicoa](https://github.com/saicoa)
-- **Discord:** [Join the server](https://discord.gg/a9cKSpeDNj)
-- **Email:** saicodisx@gmail.com
+- **GitHub:** [github.com/Mohamedco-de](https://github.com/Mohamedco-de)
+- **Discord:** [Join the server](https://discord.gg/ec-s)
+- **Email:** elbanamohmed37@gmail.com
 
 ---
 
