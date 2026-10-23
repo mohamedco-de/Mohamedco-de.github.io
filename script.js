@@ -64,7 +64,7 @@ const UI = {
 };
 
 const PROJECTS = [
-  {name:"FOZO Store",cat:"E-Commerce",year:"2026",color:"#0f3460"},
+  {name:"Mohamed Store",cat:"E-Commerce",year:"2026",color:"#0f3460"},
   {name:"Discord Bot System",cat:"Discord Bot",year:"2026",color:"#533483"},
   {name:"AI Assistant",cat:"AI Platform",year:"2026",color:"#e94560"},
   {name:"Developer Tools",cat:"Web Application",year:"2026",color:"#16213e"},
@@ -318,7 +318,7 @@ document.querySelectorAll(".mobile-menu a").forEach(a => {
       const maxScroll = track.scrollWidth - window.innerWidth;
       if (maxScroll > 0) {
         e.preventDefault();
-        track.style.transform = `translateX(${-Math.min(Math.max(track._tx||0 + e.deltaY * .8, -maxScroll), 0)}px)`;
+        track.style.transform = `translateX(${-Math.min(Math.max((track._tx||0) + e.deltaY * .8, -maxScroll), 0)}px)`;
         track._tx = parseFloat(track.style.transform.replace(/[^-\d.]/g,'')) || 0;
       }
     }
