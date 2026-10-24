@@ -27,12 +27,13 @@ I build **web applications**, **Discord bots and automation systems**, **APIs**,
 
 | # | Section | What it shows |
 |---|---------|---------------|
-| 00 | **Home** | Animated hero with scrolling image columns, particle canvas, and quick links |
+| 00 | **Home** | Animated hero with scrolling image columns, particle canvas, a typing roles line, quick stats and quick links |
 | 01 | **About** | Who I am, plus a draggable pendulum and a scrolling keyword marquee |
 | 02 | **Stack** | 40+ technologies grouped into Frontend, Backend, Databases and Tools |
-| 03 | **Projects** | A horizontally scrolling gallery of project cards |
-| 04 | **Roadmap** | A timeline of my journey from 2021 to 2026, with a progress line that fills as you scroll |
-| 05 | **Contact** | Email, Discord and GitHub links |
+| 03 | **Roadmap** | A timeline of my journey from 2021 to 2026, with a progress line that fills as you scroll |
+| 04 | **Contact** | Email, Discord and GitHub links |
+
+> The Projects section has been removed. The navigation, mobile menu and hero buttons no longer link to it.
 
 ---
 
@@ -44,10 +45,23 @@ I build **web applications**, **Discord bots and automation systems**, **APIs**,
 - **Scroll progress bar** at the top of the page
 - **Scroll-reveal animations** on every section
 - **Particle canvas** in the hero
+- **Hero extras** that fill the space on mobile: a floating code card (`mohamed.js`), a status tag, a typing line that cycles through my roles, and a row of quick stats
 - **Draggable pendulum** in the About section
-- **Horizontal scroll** for the projects gallery
 - **Animated roadmap** timeline
-- **Fully responsive**, with a mobile menu for small screens
+- **Decorative headings:** only titles use the ornate font, everything else stays in a clean sans-serif
+- **Fully responsive**, with a mobile menu for small screens. The email and footer links stay on a single line on phones
+
+---
+
+## Typography
+
+| Where | Font |
+|-------|------|
+| Headings (logo, hero title, section titles, stack categories, roadmap cards, About intro) | **Cinzel Decorative** |
+| Body text, navigation, buttons, contact and footer links | **Inter** |
+| Small labels and counters | **JetBrains Mono** |
+
+Fonts load from Google Fonts in `partials/00-head.html` and `index.html`. If a browser blocks Google Fonts, the page falls back to a default serif or sans-serif font.
 
 ---
 
@@ -65,37 +79,46 @@ I build **web applications**, **Discord bots and automation systems**, **APIs**,
 
 ## File Structure
 
-The whole site is made of three files, each with one clear job.
+The site is split into small files, each with one clear job. There is still no framework and no build step.
 
 ```
 .
-├── index.html      Page structure and content
-├── style.css       All styling, themes and animations
-├── script.js       All behavior and the site data
-└── README.md       This file
+├── index.html          The page that is served (all sections in one file)
+├── partials/           The same sections as separate HTML pieces
+├── css/                One stylesheet per section (base, header, hero, about, ...)
+├── js/                 One script per feature
+│   └── data/           Lists that fill the page (stack, icons, roadmap)
+├── assets/img/         Hero images
+├── style.css           Old single-file stylesheet (not used by index.html)
+├── script.js           Old single-file script (not used by index.html)
+└── README.md           This file
 ```
 
-### `index.html`
-The markup for every section: preloader, header and navigation, mobile menu, hero, marquee, About, Stack, Projects, Roadmap, Contact and footer. The hero images are embedded directly in the file, which is why it is larger than the other two.
+`index.html` loads the files in `css/` and `js/`. If you edit a section in `partials/`, make the same change in `index.html`, because that is the file the browser opens.
 
-### `style.css`
-Everything visual: layout, typography, colors for both themes, hover effects, reveal animations, the custom cursor, and the responsive rules for mobile and tablet.
+### `css/`
 
-### `script.js`
-Split into clear blocks, so each feature is easy to find:
+| File | Purpose |
+|------|---------|
+| `base.css` | Colors for both themes, body font, scrollbar, scroll progress bar |
+| `header.css` | Header, navigation and mobile menu |
+| `hero.css` | Hero layout, hero extras (code card, tag, roles line, stats) and mobile rules |
+| `about.css`, `stack.css`, `roadmap.css`, `contact.css`, `footer.css` | One file per section |
+| `marquee.css`, `sections.css`, `preloader.css`, `cursor.css`, `utilities.css` | Shared pieces |
 
-| Block | Purpose |
-|-------|---------|
-| **DATA** | The `STACK`, `ICONS`, `PROJECTS` and `ROADMAP` lists that fill the page |
-| **Renderers** | Build the Stack, Projects and Roadmap sections from that data |
-| **Scroll reveal** | Fades elements in as they enter the screen |
-| **Preloader and header** | Intro animation and the header changing on scroll |
-| **Theme toggle** | Switches between dark and light |
-| **Mobile menu** | Opens and closes the menu on small screens |
-| **Custom cursor** | The animated cursor and dot |
-| **Pendulum** | The draggable physics element in About |
-| **Projects scroll** | Turns vertical scrolling into horizontal movement |
-| **Hero particles** | The canvas particle animation |
+### `js/`
+
+| File | Purpose |
+|------|---------|
+| `data/stack.js`, `data/icons.js`, `data/ui-icons.js`, `data/roadmap.js` | The lists that fill the page |
+| `render.js` | Builds the Stack and Roadmap sections from that data |
+| `reveal.js` | Fades elements in as they enter the screen |
+| `preloader.js`, `header-scroll.js` | Intro animation and the header changing on scroll |
+| `theme.js`, `mobile-menu.js` | Theme toggle and mobile menu |
+| `cursor.js` | The animated cursor and dot |
+| `pendulum.js` | The draggable physics element in About |
+| `hero-particles.js` | The canvas particle animation |
+| `hero-roles.js` | The typing line in the hero (respects reduced-motion settings) |
 
 ---
 
@@ -117,24 +140,31 @@ python -m http.server 8000
 
 ## Deploy on GitHub Pages
 
-1. Upload `index.html`, `style.css` and `script.js` to a repository.
+1. Upload the whole project (`index.html`, `css/`, `js/`, `assets/`) to a repository.
 2. Go to **Settings, then Pages**.
 3. Under **Source**, choose the `main` branch and the `/ (root)` folder.
 4. Save. After a minute your site is live at `https://<your-username>.github.io/`.
 
 For a root address like that, name the repository `<your-username>.github.io`.
 
+### Custom domain (optional)
+
+To use a free `is-a.dev` subdomain:
+
+1. Register it with a pull request to the `is-a-dev/register` repository, adding `domains/<name>.json` that points a `CNAME` record to `<your-username>.github.io`.
+2. Add a file named `CNAME` (no extension) to the root of this repository, containing only your domain, for example `mohamedco-de.is-a.dev`.
+3. After the pull request is merged and DNS has propagated (up to 24 hours), set the same domain under **Settings, then Pages, then Custom domain** and turn on **Enforce HTTPS**.
+
 ---
 
 ## Make It Yours
 
-All the content you are likely to change lives in `script.js`, near the top:
-
-- **Add or remove technologies:** edit the `STACK` list
-- **Add a project:** add a line to `PROJECTS` with a name, category, year and color
-- **Edit the timeline:** change the entries in `ROADMAP`
+- **Add or remove technologies:** edit `js/data/stack.js`
+- **Edit the timeline:** change the entries in `js/data/roadmap.js`
+- **Change the typing roles in the hero:** edit the `roles` list in `js/hero-roles.js`
+- **Change the hero stats and code card:** edit the hero block in `index.html` (and `partials/05-hero.html`)
+- **Change fonts:** update the Google Fonts link in `index.html`, then the `font-family` rules in `css/`
 - **Change contact links:** edit the Contact and footer sections in `index.html`
-- **Replace the footer placeholders:** swap `YOUR_GITHUB_URL` and `YOUR_PORTFOLIO_URL` in `index.html` for your real links
 
 ---
 
