@@ -5,7 +5,7 @@
 .header{position:fixed;top:0;left:0;width:100%;z-index:100;padding:24px 0;transition:background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
 .header.scrolled{background:color-mix(in srgb,var(--bg) 75%,transparent);backdrop-filter:blur(12px);border-bottom-color:color-mix(in srgb,var(--border) 40%,transparent)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1400px;margin:0 auto;padding:0 clamp(16px,4vw,64px)}
-.header-logo{font-family:'Syne',sans-serif;font-size:clamp(18px,2vw,24px);font-weight:800;letter-spacing:-0.5px;text-transform:uppercase}
+.header-logo{font-family:'Cinzel Decorative',serif;font-size:clamp(18px,2vw,24px);font-weight:700;letter-spacing:1px;text-transform:uppercase}
 .header-nav{display:flex;align-items:center;gap:8px}
 .header-nav a{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.2em;color:var(--muted);padding:8px 16px;border-radius:9999px;transition:color .3s,background .3s;position:relative}
 .header-nav a:hover,.header-nav a.active{color:var(--fg);background:var(--surface)}

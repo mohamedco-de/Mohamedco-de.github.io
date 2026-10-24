@@ -12,11 +12,11 @@
 .about-pendulum .pend-card .role{font-size:10px;color:var(--muted);margin-top:2px}
 .about-right{width:75%}
 .about-intro{font-size:clamp(24px,3vw,48px);font-weight:300;line-height:1.15;margin-bottom:32px}
-.about-intro em{font-style:italic;font-family:serif}
+.about-intro em{font-style:italic;font-family:'Cormorant Garamond',serif}
 .about-intro strong{font-weight:700}
 .about-desc{font-size:clamp(16px,1.3vw,20px);line-height:1.8;color:var(--muted);max-width:700px}
 .about-desc strong{color:var(--fg);font-weight:600}
-.about-desc em{font-style:italic;font-family:serif;color:var(--fg);opacity:.8}
+.about-desc em{font-style:italic;font-family:'Cormorant Garamond',serif;color:var(--fg);opacity:.8}
 @media(max-width:1024px){
   .about-grid{flex-direction:column;gap:40px}
   .about-left,.about-right{width:100%}
