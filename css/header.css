@@ -2,7 +2,7 @@
 .scroll-progress{position:fixed;top:0;left:0;height:1px;background:var(--primary);z-index:99999;transform-origin:left;transform:scaleX(0);width:100%;transition:transform .1s linear}
 
 /* HEADER */
-.header{position:fixed;top-0;left-0;width:100%;z-index:100;padding:24px 0;transition:background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
+.header{position:fixed;top:0;left:0;width:100%;z-index:100;padding:24px 0;transition:background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
 .header.scrolled{background:color-mix(in srgb,var(--bg) 75%,transparent);backdrop-filter:blur(12px);border-bottom-color:color-mix(in srgb,var(--border) 40%,transparent)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1400px;margin:0 auto;padding:0 clamp(16px,4vw,64px)}
 .header-logo{font-family:'Syne',sans-serif;font-size:clamp(18px,2vw,24px);font-weight:800;letter-spacing:-0.5px;text-transform:uppercase}
