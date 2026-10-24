@@ -8,7 +8,7 @@
 <meta name="description" content="Mohamed Dev — Full Stack & Bot Developer. Building digital experiences that feel alive.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cinzel+Decorative:wght@400;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/preloader.css">
 <link rel="stylesheet" href="css/cursor.css">
@@ -93,10 +93,25 @@
     <span>Scroll</span>
   </div>
   <div class="hero-content">
+    <div class="hero-code" aria-hidden="true">
+      <div class="hc-bar"><i></i><i></i><i></i><span>mohamed.js</span></div>
+<pre><span class="k">const</span> <span class="v">mohamed</span> = {
+  <span class="p">role</span>: <span class="s">"Full-Stack Dev"</span>,
+  <span class="p">focus</span>: [<span class="s">"Web"</span>, <span class="s">"Bots"</span>, <span class="s">"AI"</span>],
+  <span class="p">status</span>: <span class="s">"building..."</span><b class="hc-caret"></b>
+};</pre>
+    </div>
+    <div class="hero-tag"><span class="pulse"></span>Full Stack <i>✦</i> Bot Dev <i>✦</i> AI</div>
     <h1 class="hero-heading">Mohamed<br>Dev <span class="thin">Portfolio</span></h1>
+    <div class="hero-roles" aria-live="polite"><span class="orn">❖</span><span id="roleText">Full-Stack Developer</span><span class="caret"></span></div>
     <p class="hero-bio">I'm a <strong>Full-Stack Developer</strong> and <strong>Creative Engineer</strong> crafting <em>web applications</em>, <em>automation systems</em>, <em>AI tools</em> and <em>interactive digital experiences</em> that feel alive.</p>
     <div class="hero-buttons">
       <a href="#contact" class="btn btn-filled"><span class="sweep"></span>Contact Me</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b>5+</b><span>Years Building</span></div>
+      <div class="stat"><b>40+</b><span>Technologies</span></div>
+      <div class="stat"><b>3</b><span>Focus Areas</span></div>
     </div>
   </div>
 </section>
@@ -248,6 +263,7 @@
 <script src="js/mobile-menu.js"></script>
 <script src="js/cursor.js"></script>
 <script src="js/pendulum.js"></script>
+<script src="js/hero-roles.js"></script>
 <script src="js/hero-particles.js"></script>
 </body>
 </html>
