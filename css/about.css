@@ -8,12 +8,12 @@
 .about-pendulum .pend-card{width:140px;padding:16px;border-radius:16px;background:color-mix(in srgb,var(--bg) 40%,transparent);backdrop-filter:blur(12px);border:1px solid color-mix(in srgb,var(--fg) 10%,transparent);text-align:center;cursor:grab;user-select:none;transition:transform .3s}
 .about-pendulum .pend-card:active{cursor:grabbing}
 .about-pendulum .pend-card .avatar{width:40px;height:40px;border-radius:50%;background:var(--primary);margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:18px}
-.about-pendulum .pend-card .name{font-size:12px;font-weight:700}
+.about-pendulum .pend-card .name{font-family:'Cinzel Decorative',serif;font-size:12px;font-weight:700}
 .about-pendulum .pend-card .role{font-size:10px;color:var(--muted);margin-top:2px}
 .about-right{width:75%}
-.about-intro{font-size:clamp(24px,3vw,48px);font-weight:300;line-height:1.15;margin-bottom:32px}
-.about-intro em{font-style:italic;font-family:serif}
-.about-intro strong{font-weight:700}
+.about-intro{font-family:'Cinzel Decorative',serif;font-size:clamp(20px,2.6vw,40px);font-weight:400;line-height:1.35;margin-bottom:32px}
+.about-intro em{font-style:normal;color:var(--primary)}
+.about-intro strong{font-weight:900}
 .about-desc{font-size:clamp(16px,1.3vw,20px);line-height:1.8;color:var(--muted);max-width:700px}
 .about-desc strong{color:var(--fg);font-weight:600}
 .about-desc em{font-style:italic;font-family:serif;color:var(--fg);opacity:.8}
