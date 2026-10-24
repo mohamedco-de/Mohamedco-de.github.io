@@ -20,7 +20,7 @@
       cur.style.transform = "translate3d(" + cx + "px," + cy + "px,0) translate(-50%,-50%)";
       requestAnimationFrame(loop);
     })();
-    const hoverSel = "a,button,input,textarea,select,[role='button'],.project-card,.stack-item,.rm-card,.pend-card";
+    const hoverSel = "a,button,input,textarea,select,[role='button'],.stack-item,.rm-card,.pend-card";
     document.addEventListener("mouseover", e => { if (e.target.closest(hoverSel)) document.body.classList.add("cursor-hover"); });
     document.addEventListener("mouseout", e => { if (e.target.closest(hoverSel)) document.body.classList.remove("cursor-hover"); });
   })();

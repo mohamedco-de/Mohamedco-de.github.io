@@ -1,6 +1,6 @@
 (function(){
 "use strict";
-  const {STACK, ICONS, UI, PROJECTS, ROADMAP} = window.PF;
+  const {STACK, ICONS, UI, ROADMAP} = window.PF;
   const stackEl = document.getElementById("stackCategories");
   STACK.forEach((cat,ci) => {
     const div = document.createElement("div");
@@ -20,26 +20,6 @@
       </div>`;
     stackEl.appendChild(div);
   });
-
-  /* ============ PROJECTS RENDER ============ */
-  const projectsTrack = document.getElementById("projectsTrack");
-  PROJECTS.forEach((p,i) => {
-    const card = document.createElement("div");
-    card.className = "project-card";
-    card.innerHTML = `
-      <div class="project-bg" style="background:linear-gradient(135deg,${p.color},${p.color}88,#000)"></div>
-      <div class="project-overlay"></div>
-      <div class="project-meta">
-        <span class="project-tag">${p.cat}</span>
-        <span class="project-tag">${p.year}</span>
-      </div>
-      <div class="project-name">${p.name}</div>`;
-    projectsTrack.appendChild(card);
-  });
-  const moreEl = document.createElement("div");
-  moreEl.className = "project-more";
-  moreEl.textContent = "MORE";
-  projectsTrack.appendChild(moreEl);
 
   /* ============ ROADMAP RENDER ============ */
   const roadmapEl = document.getElementById("roadmapItems");
