@@ -1,0 +1,103 @@
+/* ================= RESPONSIVE (كل الجوالات) =================
+   يتحمل آخر ملف عشان يتغلب على الباقي. الأحجام: 1024 / 768 / 480 / 360 */
+
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{overflow-x:hidden;overflow-x:clip;-webkit-tap-highlight-color:transparent}
+img,svg,canvas{max-width:100%}
+
+/* الخلفيات الكبيرة ما تطلع برا الشاشة (هذي كانت توسّع الصفحة) */
+.roadmap-wrap{overflow:hidden}
+.roadmap-glow.g1{width:min(400px,60vw);height:min(400px,60vw)}
+.roadmap-glow.g2{width:min(300px,50vw);height:min(300px,50vw)}
+
+/* شاشات الجوال العالية: 100svh يحسب شريط المتصفح صح */
+.hero{min-height:100vh;min-height:100svh;height:auto}
+
+/* ---------- تابلت / جوال كبير ---------- */
+@media(max-width:1024px){
+  .hero-images{width:100%;opacity:.22}
+  .hero-gradient{background:linear-gradient(to top,var(--bg) 10%,transparent 70%),linear-gradient(to right,var(--bg),transparent 90%)}
+  .hero-scroll{display:none}
+}
+
+/* ---------- جوال ---------- */
+@media(max-width:768px){
+  .header{padding:14px 0}
+  .section{padding:64px 0}
+  .section-title{font-size:clamp(34px,11vw,56px)}
+  .hero{padding-top:96px;padding-bottom:48px;align-items:flex-end}
+  .hero-heading{font-size:clamp(40px,14vw,84px);letter-spacing:-1px;line-height:.95}
+  .hero-bio{margin-top:20px;font-size:16px;max-width:100%}
+  .hero-buttons{gap:12px;margin-top:24px}
+  .hero-buttons .btn{flex:1 1 140px;justify-content:center}
+  .hero-img{border-radius:16px}
+  .hero-images,.hero-images .col,.hero-images .col-track{gap:10px}
+
+  .marquee{padding:16px 0}
+  .marquee-item{font-size:clamp(16px,5vw,24px)}
+
+  .about-grid{margin-top:32px}
+  .about-intro{font-size:clamp(22px,6.4vw,30px)}
+  .about-desc{font-size:15px;line-height:1.75}
+
+  .stack-categories{margin-top:32px;gap:40px}
+  .stack-items{grid-template-columns:repeat(3,1fr);gap:10px}
+  .stack-item{padding:14px 6px;opacity:.85;filter:none}
+  .stack-icon{width:26px;height:26px}
+  .stack-cat-name{font-size:17px}
+
+  .projects-intro{margin-bottom:24px;font-size:15px}
+  .project-card{width:min(78vw,340px)}
+  .projects-track{gap:14px;padding:0 16px}
+  .project-more{padding:0 32px;font-size:56px}
+  .project-card .project-name{opacity:1;font-size:clamp(20px,6vw,28px);bottom:16px;left:16px;right:16px}
+  .project-card .project-meta{opacity:1;transform:none}
+  .project-card .project-bg{opacity:.9;filter:none}
+
+  .roadmap-wrap{margin-top:32px}
+  .roadmap-items{gap:32px}
+  .rm-card{padding:18px;display:block;max-width:100%}
+  .rm-bg,.roadmap-bg{font-size:28vw}
+  .rm-content,.roadmap-item:nth-child(odd) .rm-content{padding-left:44px !important}
+  .rm-tags,.rm-card:nth-child(odd) .rm-tags{justify-content:flex-start}
+
+  .contact-row{padding:24px 0;gap:12px}
+  .contact-row:hover{padding-left:0}
+  .contact-row .value{overflow-wrap:anywhere;font-size:clamp(16px,5vw,22px)}
+  .contact-row .arrow{opacity:1;transform:none;flex-shrink:0}
+
+  .footer{margin-top:32px;padding:32px 0}
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:20px}
+  .footer-socials{flex-wrap:wrap;gap:8px;width:100%}
+  .footer-social{height:44px;padding:0 20px;font-size:13px;flex:1 1 calc(50% - 8px);justify-content:center}
+
+  .mobile-menu a{font-size:clamp(22px,7vw,30px)}
+}
+
+/* ---------- جوال صغير (360 وأقل) ---------- */
+@media(max-width:380px){
+  .header-logo{font-size:16px}
+  .header-btn,.mobile-toggle{width:36px;height:36px}
+  .hero-heading{font-size:clamp(34px,13.5vw,48px)}
+  .btn{padding:0 20px;font-size:13px;height:44px}
+  .stack-items{gap:8px}
+  .stack-label{font-size:10px}
+  .project-card{width:82vw}
+}
+
+/* ---------- جوال أفقي (landscape) ---------- */
+@media(max-height:480px) and (orientation:landscape){
+  .hero{padding-top:80px}
+  .hero-heading{font-size:clamp(32px,8vw,56px)}
+  .mobile-menu{overflow-y:auto;justify-content:flex-start;padding-top:72px;gap:14px}
+}
+
+/* ---------- شاشات اللمس: ما فيه hover ---------- */
+@media(hover:none){
+  .stack-item:hover,.project-card:hover .project-bg{transform:none}
+  .btn:hover,.footer-social:hover{transform:none}
+}
+
+/* safe-area للأيفون (النوتش) */
+.header-inner{padding-left:max(clamp(16px,4vw,64px),env(safe-area-inset-left));padding-right:max(clamp(16px,4vw,64px),env(safe-area-inset-right))}
+.footer{padding-bottom:max(32px,env(safe-area-inset-bottom))}

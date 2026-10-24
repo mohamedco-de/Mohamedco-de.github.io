@@ -1,0 +1,37 @@
+/* ================= الخطوط المزخرفة =================
+   غيّر الخط من هنا فقط: --font-display للعناوين، --font-accent للكلمات المائلة.
+   Cinzel Decorative = إنجليزي مزخرف، Aref Ruqaa = رقعة عربي (يشتغل تلقائياً لو فيه نص عربي). */
+:root{
+  --font-display:'Cinzel Decorative','Aref Ruqaa',Georgia,serif;
+  --font-accent:'Playfair Display','Aref Ruqaa',Georgia,serif;
+}
+
+/* Cinzel عريض وحروفه كبيرة: نشيل الـ letter-spacing السالب ونصغر الأحجام شوي */
+.hero-heading,.section-title,.header-logo,.marquee-item,
+.project-card .project-name,.project-more,.contact-row .value,
+.stack-cat-name,.rm-card h3,.roadmap-bg,.rm-deco{letter-spacing:.02em;font-weight:700}
+.hero-heading{font-size:clamp(38px,8vw,120px);line-height:1.05;font-weight:900;text-shadow:0 0 40px color-mix(in srgb,var(--primary) 35%,transparent)}
+.hero-heading .thin,.projects-intro em,.about-intro em,.about-desc em,.hero-bio em{font-family:var(--font-accent);font-style:italic}
+.hero-heading .thin{font-weight:400;letter-spacing:0;display:block;margin-top:.1em}
+.section-title{font-size:clamp(32px,5vw,64px);font-weight:900}
+.header-logo{font-size:clamp(15px,1.6vw,20px);font-weight:900;letter-spacing:.06em}
+.marquee-item{font-size:clamp(20px,3.2vw,48px)}
+.contact-row .value{font-size:clamp(16px,2.6vw,30px)}
+.rm-card h3{font-size:17px}
+.rm-deco{font-weight:400;font-style:normal}
+
+/* لمسة زخرفة: خط صغير مزخرف تحت عناوين الأقسام */
+.section-title::after{content:"❖";display:block;margin-top:12px;font-size:.32em;letter-spacing:0;color:var(--primary);opacity:.8}
+
+@media(max-width:768px){
+  .hero-heading{font-size:clamp(30px,9.2vw,56px)}
+  .section-title{font-size:clamp(28px,8.6vw,44px)}
+  .marquee-item{font-size:clamp(15px,4.4vw,22px)}
+  .project-card .project-name{font-size:clamp(17px,5vw,24px)}
+  .project-more{font-size:44px}
+  .contact-row .value{font-size:clamp(14px,4.2vw,19px)}
+}
+@media(max-width:380px){
+  .hero-heading{font-size:clamp(26px,8.6vw,34px)}
+  .header-logo{font-size:13px}
+}

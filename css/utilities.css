@@ -10,3 +10,5 @@
 .stack-icon svg{width:28px;height:28px}
 .contact-row .arrow svg{width:16px;height:16px}
 .about-pendulum .pend-card .avatar svg{width:20px;height:20px;color:#fff}
+::selection{background:var(--primary);color:#fff}
+.section-title{background:linear-gradient(90deg,var(--fg),color-mix(in srgb,var(--fg) 55%,var(--primary)));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
